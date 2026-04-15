@@ -23,413 +23,236 @@ body {
   place-items: center;
 }
 
-/* ─── SLIDE CONTAINER ─────────────────────────────── */
-.slide-container {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: clamp(8px, 2vw, 12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+/* ─── SLIDE CONTAINER ─────────────────────────────────── */
+.slide {
+  background: white;
+  border-radius: clamp(16px, 3vw, 24px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
-  justify-content: center;
+  max-width: 1000px;
   overflow: hidden;
-  padding: clamp(24px, 5vw, 60px);
   position: relative;
   width: 100%;
-  max-width: 1280px;
-  min-height: clamp(320px, 56vw, 720px);
 }
 
-/* ─── TYPOGRAPHY ──────────────────────────────────── */
-.slide-container h1, .slide-container h2, .slide-container h3, .slide-container .number { color: #1e293b; font-family: 'Poppins', sans-serif; margin: 0; }
-.slide-container p, .slide-container li, .slide-container .subtitle, .slide-container .number-label { color: #475569; font-family: 'Inter', sans-serif; }
-
-.slide-container h1 { font-size: clamp(28px, 5vw, 64px); font-weight: 700; line-height: 1.1; }
-.slide-container h2.slide-title { font-size: clamp(20px, 3.5vw, 42px); font-weight: 600; margin-bottom: clamp(16px, 3vw, 40px); text-align: left; width: 100%; }
-.slide-container h3 { font-size: clamp(18px, 2.5vw, 28px); font-weight: 600; margin-bottom: 15px; }
-.slide-container p, .slide-container li { font-size: clamp(14px, 1.8vw, 20px); line-height: 1.6; }
-.slide-container .subtitle { font-size: clamp(16px, 2vw, 24px); font-weight: 500; margin-top: 20px; }
-
-/* ─── LAYOUT HELPERS ──────────────────────────────── */
-.content-area { align-items: center; display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; }
-
-.text-gradient { background: linear-gradient(90deg, #ec4899, #f59e0b, #10b981, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.gradient-bar { background: linear-gradient(90deg, #ec4899, #f59e0b, #10b981, #0ea5e9); border-radius: 4px; height: 6px; margin-bottom: 30px; width: 120px; }
-
-.title-layout { text-align: center; max-width: 900px; width: 100%; }
-
-.section-title-layout { align-items: center; display: flex; flex-direction: column; height: 100%; justify-content: center; text-align: center; width: 100%; }
-.section-title-layout h2 { font-size: clamp(22px, 4.5vw, 56px); margin-bottom: 20px; }
-
-/* ─── TWO COLUMN ──────────────────────────────────── */
-.two-column {
-  align-items: start;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 4vw, 50px);
-  width: 100%;
-}
-@media (max-width: 700px) {
-  .two-column { grid-template-columns: 1fr; }
+.slide-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: clamp(16px, 3vw, 24px);
 }
 
-/* ─── IMAGE WRAPPER ───────────────────────────────── */
-.image-wrapper {
-  border-radius: 12px;
-  height: clamp(200px, 30vw, 400px);
-  overflow: hidden;
-  width: 100%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.two-column .image-wrapper img { height: 100%; object-fit: contain; width: 100%; background-color: #f8fafc; }
-
-/* ─── BULLET LIST ─────────────────────────────────── */
-.bullet-list ul { list-style: none; margin: 0; padding: 0; }
-.bullet-list li { margin-bottom: clamp(12px, 2vw, 25px); padding-left: clamp(28px, 4vw, 45px); position: relative; }
-.bullet-list i { color: #ec4899; font-size: clamp(16px, 2vw, 24px); left: 0; position: absolute; top: 4px; }
-.bullet-list li strong { color: #1e293b; font-weight: 600; }
-
-/* ─── BLEED IMAGE LAYOUT ──────────────────────────── */
-.slide-container.bleed-image-layout {
-  align-items: start;
-  display: grid;
-  gap: 0;
-  grid-template-columns: 1fr 1fr;
-  padding: 0;
-}
-.slide-container.bleed-image-layout > .content-container {
-  padding: clamp(24px, 5vw, 80px) 0 clamp(24px, 5vw, 80px) clamp(24px, 5vw, 80px);
+.slide-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-.slide-container.bleed-image-layout .image-container { height: 100%; overflow: hidden; width: 100%; }
-.slide-container.bleed-image-layout img.bleed-image-side { display: block; height: 100%; min-height: 280px; object-fit: cover; object-position: center; width: 100%; }
-
-@media (max-width: 700px) {
-  .slide-container.bleed-image-layout { grid-template-columns: 1fr; }
-  .slide-container.bleed-image-layout > .content-container { padding: 24px; }
-  .slide-container.bleed-image-layout .image-container { height: clamp(180px, 50vw, 280px); }
-  .slide-container.bleed-image-layout img.bleed-image-side { height: 100%; min-height: unset; }
+  gap: clamp(20px, 4vw, 30px);
+  padding: clamp(20px, 4vw, 40px);
 }
 
-/* ─── HIGHLIGHT NUMBERS ───────────────────────────── */
-.highlight-numbers-layout { align-items: center; }
-.highlight-numbers-layout > div:first-child { flex: 0 0 45%; text-align: center; }
-.highlight-numbers-layout .number-block { margin-bottom: clamp(16px, 3vw, 40px); }
-.highlight-numbers-layout .number { font-size: clamp(48px, 8vw, 100px); font-weight: 700; line-height: 1; background: linear-gradient(90deg, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.highlight-numbers-layout .number-label { font-size: clamp(12px, 1.8vw, 22px); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #1e293b; margin-top: 10px; }
-
-@media (max-width: 700px) {
-  .highlight-numbers-layout { flex-direction: column !important; }
-  .highlight-numbers-layout > div:first-child { flex: none; width: 100%; display: flex; gap: 20px; justify-content: center; }
-  .highlight-numbers-layout .number-block { margin-bottom: 0; }
+@media (min-width: 768px) {
+  .slide-content { flex-direction: row; }
 }
 
-/* ─── QA LAYOUT ───────────────────────────────────── */
-.qa-layout { margin: 0 auto; text-align: center; width: 100%; }
-.qa-layout h2 { font-size: clamp(32px, 6vw, 72px); margin-bottom: 20px; }
-.qa-layout p { font-size: clamp(15px, 2vw, 26px); }
-.qa-layout .contact-info { color: #1e293b; font-size: clamp(14px, 1.8vw, 22px); font-weight: 600; margin-top: 30px; padding: 20px; background-color: #f1f5f9; border-radius: 12px; display: inline-block; }
-
-/* ─── IMAGE SHOWCASE ──────────────────────────────── */
-.slide-container.image-showcase { padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px); }
-.showcase-img { border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); width: 100%; height: clamp(180px, 40vw, 560px); object-fit: cover; object-position: center top; display: block; }
-
-/* ─── SIM WIDGETS ─────────────────────────────────── */
-.sim, #tech-widget, #pc-widget, #sim3d-widget {
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  width: 100%;
-  height: clamp(300px, 44vw, 400px);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.sim { background: #0f172a; }
-#tech-widget { background: #0f172a; }
-#pc-widget, #sim3d-widget { background: #0f172a; position: relative; }
-
-/* ONBOARDING SIM */
-.sim-header { background: #1e293b; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155; flex-shrink: 0; gap: 8px; flex-wrap: wrap; }
-.sim-dots { display: flex; gap: 5px; flex-shrink: 0; }
-.sim-dot { width: 9px; height: 9px; border-radius: 50%; }
-.sim-htitle { color: #94a3b8; font-size: clamp(8px, 1.2vw, 10px); letter-spacing: 1.5px; text-transform: uppercase; }
-.sim-xp { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
-.xp-bar-bg { width: 70px; height: 4px; background: #334155; border-radius: 2px; }
-.xp-bar-fill { height: 4px; border-radius: 2px; background: #f59e0b; transition: width .5s; }
-.xp-label { color: #f59e0b; font-size: 11px; font-weight: 700; min-width: 52px; text-align: right; }
-.sim-body { display: flex; flex: 1; min-height: 0; }
-.sim-sidebar { width: clamp(90px, 14vw, 148px); background: #1e293b; border-right: 1px solid #334155; padding: 10px 0; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow: hidden; }
-.sb-item { padding: 8px clamp(6px, 1.2vw, 12px); cursor: pointer; border-left: 3px solid transparent; transition: all .2s; display: flex; align-items: center; gap: 7px; }
-.sb-item:hover { background: #263348; }
-.sb-item.active { border-left-color: #ec4899; background: #1a2540; }
-.sb-item.done { border-left-color: #10b981; }
-.sb-marker { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; transition: background .3s; }
-.sb-name { font-size: clamp(9px, 1.2vw, 11px); color: #94a3b8; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sb-item.active .sb-name { color: #f1f5f9; }
-.sb-item.done .sb-name { color: #10b981; }
-.sim-content { flex: 1; padding: clamp(8px, 1.5vw, 14px) clamp(10px, 1.5vw, 16px); display: flex; flex-direction: column; gap: 8px; overflow: hidden; min-width: 0; }
-.scene-header { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
-.scene-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-.scene-title { color: #f1f5f9; font-size: clamp(10px, 1.4vw, 13px); font-weight: 700; }
-.scene-sub { color: #64748b; font-size: clamp(8px, 1.2vw, 10px); margin-top: 1px; }
-.scene-badge { margin-left: auto; padding: 2px 8px; border-radius: 10px; font-size: 9px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
-.question-card { background: #1e293b; border-radius: 9px; padding: clamp(8px, 1.5vw, 12px); border: 1px solid #334155; flex-shrink: 0; }
-.question-txt { color: #e2e8f0; font-size: clamp(10px, 1.4vw, 12px); line-height: 1.55; margin-bottom: 10px; }
-.choices { display: flex; flex-direction: column; gap: 4px; }
-.choice { background: #0f172a; border: 1px solid #334155; border-radius: 7px; padding: clamp(5px, 1vw, 7px) clamp(8px, 1.5vw, 11px); cursor: pointer; color: #94a3b8; font-size: clamp(9px, 1.2vw, 11px); transition: all .2s; display: flex; align-items: center; gap: 7px; }
-.choice:hover:not(.disabled) { background: #1e293b; border-color: #475569; color: #e2e8f0; }
-.choice.correct { border-color: #10b981; background: #0d2818; color: #4ade80; }
-.choice.wrong { border-color: #ef4444; background: #1f0e0e; color: #f87171; }
-.choice.disabled { cursor: default; opacity: .65; }
-.choice-letter { width: 18px; height: 18px; border-radius: 50%; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; color: #94a3b8; }
-.choice.correct .choice-letter { background: #10b981; color: #fff; }
-.choice.wrong .choice-letter { background: #ef4444; color: #fff; }
-.ob-feedback { border-radius: 7px; padding: 8px 11px; font-size: clamp(9px, 1.2vw, 11px); line-height: 1.5; display: none; flex-shrink: 0; }
-.ob-feedback.show { display: block; }
-.ob-feedback.ok { background: #0d2818; border: 1px solid #10b981; color: #4ade80; }
-.ob-feedback.ko { background: #1f0e0e; border: 1px solid #ef4444; color: #f87171; }
-.sim-footer { background: #1e293b; border-top: 1px solid #334155; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; gap: 10px; }
-.prog-wrap { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
-.prog-label { color: #64748b; font-size: clamp(9px, 1.2vw, 10px); white-space: nowrap; }
-.prog-bg { flex: 1; height: 3px; background: #334155; border-radius: 2px; }
-.prog-fill { height: 3px; border-radius: 2px; background: #ec4899; transition: width .4s; }
-.btn-next { background: #ec4899; color: #fff; border: none; border-radius: 7px; padding: 7px 14px; font-size: clamp(9px, 1.3vw, 11px); font-weight: 700; cursor: pointer; transition: background .2s; font-family: 'Inter', sans-serif; white-space: nowrap; flex-shrink: 0; }
-.btn-next:hover:not(:disabled) { background: #db2777; }
-.btn-next:disabled { background: #334155; color: #64748b; cursor: default; }
-.scene-complete { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; text-align: center; height: 100%; }
-.sc-emoji { font-size: 30px; }
-.sc-title { color: #10b981; font-size: 14px; font-weight: 700; }
-.sc-sub { color: #64748b; font-size: 11px; line-height: 1.5; }
-.sc-xp { background: #0d2818; border: 1px solid #10b981; border-radius: 7px; padding: 5px 14px; color: #10b981; font-size: 12px; font-weight: 700; }
-.finish-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px; text-align: center; height: 100%; }
-.finish-title { color: #f1f5f9; font-size: clamp(13px, 2vw, 18px); font-weight: 700; }
-.finish-sub { color: #64748b; font-size: 12px; }
-.finish-stats { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; justify-content: center; }
-.fstat { background: #1e293b; border-radius: 9px; padding: 8px 12px; text-align: center; border: 1px solid #334155; }
-.fstat-val { font-size: clamp(16px, 2.5vw, 22px); font-weight: 700; }
-.fstat-lbl { color: #64748b; font-size: 10px; margin-top: 2px; }
-.btn-restart { background: transparent; border: 1px solid #ec4899; color: #ec4899; border-radius: 7px; padding: 7px 18px; font-size: 11px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background .2s; }
-.btn-restart:hover { background: #ec489920; }
-
-/* TECH SIM */
-.tech-action { background: #0f172a; border: 1px solid #334155; border-radius: 7px; padding: 7px 11px; cursor: pointer; color: #94a3b8; font-size: clamp(9px, 1.2vw, 11px); transition: all .2s; display: flex; align-items: center; gap: 8px; }
-.tech-action:hover:not(.disabled) { background: #1e293b; border-color: #475569; color: #e2e8f0; }
-.tech-action.correct { border-color: #10b981; background: #0d2818; color: #4ade80; }
-.tech-action.wrong { border-color: #ef4444; background: #1f0e0e; color: #f87171; }
-.tech-action.disabled { cursor: default; opacity: .6; }
-.tech-action-num { width: 18px; height: 18px; border-radius: 4px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; color: #94a3b8; }
-.tech-action.correct .tech-action-num { background: #10b981; color: #fff; }
-.tech-action.wrong .tech-action-num { background: #ef4444; color: #fff; }
-.tech-feedback { border-radius: 7px; padding: 8px 11px; font-size: clamp(9px, 1.2vw, 11px); line-height: 1.5; display: none; }
-.tech-feedback.show { display: block; }
-.tech-feedback.ok { background: #0d2818; border: 1px solid #10b981; color: #4ade80; }
-.tech-feedback.ko { background: #1f0e0e; border: 1px solid #ef4444; color: #f87171; }
-
-/* POINT & CLICK SIM */
-.pc-hazard { position: absolute; cursor: pointer; transition: all .3s; }
-.pc-hazard .pc-ping { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f59e0b; animation: pc-pulse 1.4s ease-out infinite; }
-.pc-hazard .pc-ping2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f59e0b; animation: pc-pulse 1.4s ease-out infinite .5s; }
-.pc-hazard .pc-dot { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 14px; height: 14px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 12px #f59e0b; z-index: 2; transition: all .3s; }
-.pc-hazard.found .pc-dot { background: #10b981; box-shadow: 0 0 12px #10b981; animation: none; }
-.pc-hazard.found .pc-ping, .pc-hazard.found .pc-ping2 { border-color: #10b981; animation: none; opacity: 0; }
-@keyframes pc-pulse { 0% { transform: translate(-50%,-50%) scale(1); opacity: 1; } 100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; } }
-
-/* HUD STEPS */
-.hud-step { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.08); transition: all .35s; }
-.hud-step.active { background: rgba(14,165,233,.15); border-color: #0ea5e9; }
-.hud-step.done { background: rgba(16,185,129,.12); border-color: #10b981; }
-.hud-step-num { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #475569; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #64748b; flex-shrink: 0; transition: all .35s; }
-.hud-step.active .hud-step-num { border-color: #0ea5e9; color: #0ea5e9; }
-.hud-step.done .hud-step-num { border-color: #10b981; background: #10b981; color: #fff; }
-.hud-step-txt { font-size: clamp(9px, 1.2vw, 11px); font-weight: 600; color: #64748b; transition: color .35s; }
-.hud-step.active .hud-step-txt { color: #e2e8f0; }
-.hud-step.done .hud-step-txt { color: #10b981; }
-
-@keyframes warningFlash { 0%,100% { opacity:1; } 50% { opacity:.3; } }
-@keyframes scanline { 0% { top: -2px; } 100% { top: 100%; } }
-@keyframes blink2 { 0%,100%{opacity:1} 50%{opacity:.3} }
-@keyframes float-steam { 0%,100%{transform:translateY(0) rotate(0deg);opacity:.6} 50%{transform:translateY(-6px) rotate(10deg);opacity:.2} }
-@keyframes vr-glow{0%,100%{background:#0ea5e9;box-shadow:0 0 15px #0ea5e9}50%{background:#ec4899;box-shadow:0 0 15px #ec4899}}
-@keyframes float{0%,100%{transform:translateZ(50px) translateY(0)}50%{transform:translateZ(50px) translateY(-15px)}}
-@keyframes progress{0%{width:0%}100%{width:100%}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
-
-/* LOGO */
-.logo-top { position: absolute; top: clamp(16px, 2.5vw, 36px); left: clamp(20px, 4vw, 50px); height: clamp(50px, 8vw, 100px); object-fit: contain; }
-
-/* SLIDE 5 centered text block */
-.centered-text-block { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 800px; width: 100%; }
-
-/* Slide 11 numbers responsive */
-@media (max-width: 700px) {
-  .slide-container.two-col-numbers { flex-direction: column !important; }
-}
-
-/* Slide 4 interactive sim */
-.interactive-sim {
-  background: #1e293b;
-  position: relative;
-  display: flex;
+.text-section { flex: 1; }
+.visual-section { 
   align-items: center;
+  display: flex;
+  flex: 1;
   justify-content: center;
-  overflow: hidden;
   perspective: 1000px;
-  cursor: pointer;
-  transition: background .4s ease;
-  height: clamp(200px, 30vw, 400px) !important;
-  border-radius: 12px;
+}
+
+/* ─── INTERACTIVE SIMULATOR (SLIDE 4) ─────────────────── */
+.interactive-sim {
+  background: #0f172a;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
-.interactive-sim .scene { position: relative; width: clamp(220px, 36vw, 400px); height: clamp(180px, 26vw, 300px); transform: rotateY(-10deg) rotateX(5deg); transition: transform .6s ease; }
 
-/* Sidebar panel responsiveness for P&C and 3D */
-.panel-sidebar {
-  width: clamp(110px, 16vw, 150px) !important;
+.sim-header {
+  align-items: center;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.sim-body {
+  display: flex;
+  flex: 1;
+  min-height: 350px;
+}
+
+/* Responsive sidebars for phone */
+@media (max-width: 767px) {
+  .sim-body { flex-direction: column; }
+}
+
+.sim-sidebar {
+  background: #111827;
+  border-right: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+}
+
+@media (max-width: 767px) {
+  .sim-sidebar {
+    width: 100%;
+    flex-direction: row;
+    height: 50px;
+    border-right: none;
+    border-bottom: 1px solid #334155;
+  }
+}
+
+.sb-item {
+  align-items: center;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  font-size: 18px;
+  justify-content: center;
+  transition: all .3s;
+}
+
+.sb-item.active {
+  background: rgba(14,165,233,0.1);
+  color: #0ea5e9;
+}
+
+.sim-main {
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  flex: 1;
+  overflow: hidden;
+  padding: 20px;
+  perspective: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RESPONSIVE CANVAS FIXES */
+.interactive-sim .scene {
+  position: relative;
+  width: 100%;
+  max-width: 360px; /* Limits size on desktop */
+  aspect-ratio: 4 / 3;
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: transform .6s ease;
+  transform-style: preserve-3d;
+}
+
+.holo-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(50px);
+  width: 90% !important; /* Forces responsive width */
+  height: 80% !important;
+  background: rgba(14,165,233,0.1);
+  border: 2px solid #0ea5e9;
+  border-radius: 15px;
+  z-index: 1;
+  animation: float 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  transition: all .4s ease;
+  box-shadow: 0 0 20px rgba(14,165,233,0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateZ(50px) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateZ(50px) translateY(-10px); }
+}
+
+.holo-inner { flex: 1; position: relative; overflow: hidden; }
+
+/* Contact links with no underline */
+.contact-info a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #0ea5e9;
+}
+
+/* Mobile specific overrides */
+@media (max-width: 480px) {
+  .sim-main { padding: 10px; min-height: 300px; }
+  .holo-screen { width: 95% !important; padding: 10px; }
+  .status-text { font-size: 10px !important; }
 }
 </style>
 </head>
 <body>
 
-<!-- SLIDE 1 -->
-<div class="slide-container" id="slide1">
-  <img src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/logo%20fond%20claire.png" alt="Logo Freelance Provider" class="logo-top">
-  <div class="title-layout">
-    <div class="gradient-bar" style="margin:0 auto 30px auto;width:150px;height:8px;"></div>
-    <h1>Serious Games :<br>Performance & <span class="text-gradient">Engagement</span></h1>
-    <p class="subtitle">Digitalisez vos formations et processus métiers par l'interactivité avec Freelance Provider.</p>
+<div class="slide">
+  <div class="slide-header">
+    <div style="font-weight:700;font-family:'Poppins';">SERIOUS GAMES</div>
+    <div style="opacity:0.6;font-size:14px;">Simulation Interactive</div>
   </div>
-</div>
-
-<!-- SLIDE 2 -->
-<div class="slide-container" id="slide2">
-  <div class="section-title-layout">
-    <div class="gradient-bar" style="margin:0 auto 30px auto;"></div>
-    <h2>Nos Domaines d'Intervention</h2>
-    <p>Découvrez comment l'interactivité transforme 4 piliers stratégiques de votre entreprise.</p>
-  </div>
-</div>
-
-<!-- SLIDE 3 -->
-<div class="slide-container bleed-image-layout" id="slide3">
-  <div class="content-container">
-    <div class="gradient-bar"></div>
-    <h2 class="slide-title" style="margin-bottom:20px;">01. Formation & Sécurité</h2>
-    <div class="content-area" style="align-items:flex-start;">
-      <p><strong>Simuler des situations à risque sans danger.</strong></p>
-      <p>La formation à la sécurité nécessite des réflexes immédiats. Les Serious Games permettent de recréer des environnements critiques en réalité virtuelle ou sur écran, offrant une immersion totale.</p>
-      <p>L'objectif ? Ancrer les protocoles critiques de manière indélébile grâce à un apprentissage par l'action, annulant totalement le risque d'accident durant la formation.</p>
-    </div>
-  </div>
-  <div class="image-container">
-    <img class="bleed-image-side" src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/img1.png" alt="Formation sécurité">
-  </div>
-</div>
-
-<!-- SLIDE 4 -->
-<div class="slide-container" id="slide4">
-  <h2 class="slide-title">Cas Pratique : <span class="text-gradient">Simulateur d'Intervention</span></h2>
-  <div class="content-area">
-    <div class="two-column">
-      <div class="bullet-list">
-        <p>Mettez vos équipes face à des situations concrètes dans un environnement maîtrisé et mesurable.</p>
-        <ul>
-          <li><i class="fa-solid fa-triangle-exclamation"></i><strong>Reproduction de l'environnement :</strong> Immersion dans une copie digitale de vos locaux ou chantiers types pour une mise en contexte immédiate.</li>
-          <li><i class="fa-solid fa-stopwatch"></i><strong>Gestion des incidents :</strong> L'apprenant doit appliquer les bonnes procédures de sécurité face à une urgence scénarisée.</li>
-          <li><i class="fa-solid fa-chart-line"></i><strong>Analyse des performances :</strong> Suivi précis des décisions prises pour identifier les axes d'amélioration lors du débriefing.</li>
-        </ul>
+  
+  <div class="slide-content">
+    <div class="text-section">
+      <h2 style="color:#1e293b;font-family:'Poppins';margin-top:0;">Environnements de Test Sans Risque</h2>
+      <p style="color:#475569;line-height:1.6;">
+        Offrez à vos collaborateurs un droit à l'erreur total. Nos simulations 3D reproduisent vos process critiques pour un apprentissage par la pratique.
+      </p>
+      
+      <div class="contact-info" style="margin-top:30px; font-family: 'Inter'; font-size: 14px; color: #64748b;">
+        <i class="fa-solid fa-globe" style="color:#0ea5e9;margin-right:10px;"></i> 
+        <a href="https://www.freelance-provider.com" target="_blank">www.freelance-provider.com</a>
+        <br><br>
+        <i class="fa-solid fa-envelope" style="color:#ec4899;margin-right:10px;"></i> 
+        <a href="mailto:contact@freelance-provider.com">contact@freelance-provider.com</a>
       </div>
-      <div>
-        <div class="interactive-sim" id="slide4-sim">
-          <div class="scene" id="slide4-scene">
-            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;height:180px;background:#0f172a;border-radius:50% 50% 0 0;z-index:2;">
-              <div style="position:absolute;top:-45px;left:50%;transform:translateX(-50%);width:50px;height:50px;background:#0f172a;border-radius:50%;">
-                <div class="visor" style="position:absolute;top:15px;left:10px;width:40px;height:10px;background:#0ea5e9;border-radius:5px;box-shadow:0 0 15px #0ea5e9;animation:vr-glow 2s infinite;transition:all .4s ease;"></div>
-              </div>
-            </div>
-            <div class="holo-screen" style="position:absolute;top:20px;left:20px;width:360px;height:200px;background:rgba(14,165,233,0.1);border:2px solid #0ea5e9;border-radius:15px;z-index:1;transform:translateZ(50px);animation:float 4s ease-in-out infinite;display:flex;flex-direction:column;padding:20px;transition:all .4s ease;">
-              <div style="width:100%;height:10px;background:rgba(236,72,153,0.3);border-radius:5px;margin-bottom:10px;">
-                <div class="progress-bar" style="width:40%;height:100%;background:#ec4899;border-radius:5px;animation:progress 3s infinite;transition:background .4s ease;"></div>
-              </div>
-              <div style="display:flex;gap:10px;margin-top:10px;">
-                <div class="status-circle" style="width:50px;height:50px;border:2px solid #10b981;border-radius:50%;border-top-color:transparent;animation:spin 2s linear infinite;"></div>
-                <div style="flex:1;">
-                  <div style="width:80%;height:8px;background:#fff;opacity:.3;margin-bottom:8px;"></div>
-                  <div style="width:60%;height:8px;background:#fff;opacity:.3;"></div>
+    </div>
+
+    <div class="visual-section">
+      <div class="interactive-sim">
+        <div class="sim-header">
+          <div style="display:flex;gap:5px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#ff5f56;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#27c93f;"></div>
+          </div>
+          <span style="color:#64748b;font-size:10px;font-family:monospace;">SIM_V2.0_ENV</span>
+        </div>
+        
+        <div class="sim-body">
+          <div class="sim-sidebar">
+            <div class="sb-item active"><i class="fa-solid fa-cube"></i></div>
+            <div class="sb-item"><i class="fa-solid fa-bolt"></i></div>
+            <div class="sb-item"><i class="fa-solid fa-gears"></i></div>
+          </div>
+          
+          <div class="sim-main">
+            <div class="scene" id="sim-scene">
+              <div class="holo-screen">
+                <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(14,165,233,0.3);padding-bottom:5px;margin-bottom:10px;">
+                  <span style="color:#0ea5e9;font-size:10px;font-weight:bold;">SYSTEM STATUS</span>
+                  <span style="color:#27c93f;font-size:10px;">ONLINE</span>
+                </div>
+                <div class="holo-inner">
+                   <div style="color:white; font-size: 12px; text-align: center; margin-top: 10px;">
+                     Canvas Interactif<br>Réactif
+                   </div>
                 </div>
               </div>
-              <div class="alert-box" style="margin-top:auto;background:#ec4899;color:white;font-family:monospace;font-size:12px;padding:5px;text-align:center;border-radius:4px;animation:blink 1s infinite;transition:all .4s ease;">ALERTE INCIDENT : SECTEUR 04</div>
             </div>
-            <div style="position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:200px;height:20px;background:rgba(0,0,0,0.3);border-radius:50%;filter:blur(10px);"></div>
-          </div>
-        </div>
-        <style>
-          #slide4-sim:hover { background: #243146 !important; }
-          #slide4-sim:hover #slide4-scene { transform: rotateY(-15deg) rotateX(8deg) scale(1.05) !important; }
-          #slide4-sim:hover .visor { background: #10b981 !important; box-shadow: 0 0 20px #10b981 !important; animation: none; }
-          #slide4-sim:hover .holo-screen { background: rgba(16,185,129,0.1) !important; border-color: #10b981 !important; }
-          #slide4-sim:hover .progress-bar { background: #10b981 !important; }
-          #slide4-sim:hover .alert-box { background: #10b981 !important; animation: none !important; }
-          #slide4-sim:hover .alert-box::after { content: " -> RÉSOLU"; font-weight: bold; }
-        </style>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 5 -->
-<div class="slide-container" id="slide5">
-  <div class="centered-text-block">
-    <div class="gradient-bar" style="margin:0 auto 30px auto;"></div>
-    <h2 class="slide-title" style="text-align:center;margin-bottom:30px;">02. Onboarding &amp; Culture</h2>
-    <p><strong>Une intégration mémorable et accélérée.</strong></p>
-    <p>L'accueil d'un nouveau collaborateur est déterminant pour sa fidélisation. Transformez les traditionnels livrets d'accueil en parcours ludifiés et interactifs.</p>
-    <p>L'immersion dans la culture d'entreprise devient naturelle, favorisant les échanges, la compréhension des valeurs et réduisant drastiquement le temps nécessaire pour être opérationnel.</p>
-  </div>
-</div>
-
-<!-- SLIDE 6 -->
-<div class="slide-container" id="slide6">
-  <h2 class="slide-title">Cas Pratique : <span class="text-gradient">Parcours d'Intégration Actif</span></h2>
-  <div class="content-area">
-    <div class="two-column">
-      <div class="bullet-list">
-        <p>Un module interactif remplaçant les longues présentations pour engager les nouveaux talents dès le premier jour.</p>
-        <ul>
-          <li><i class="fa-solid fa-magnifying-glass"></i><strong>Découverte interactive :</strong> Assimilation de l'histoire, de l'organigramme et des valeurs de l'entreprise via des modules de jeu narratifs.</li>
-          <li><i class="fa-solid fa-users-gear"></i><strong>Mises en situation métier :</strong> Premiers pas guidés dans les processus internes pour une prise de poste plus sereine et rapide.</li>
-          <li><i class="fa-solid fa-puzzle-piece"></i><strong>Création de lien :</strong> Intégration de défis collaboratifs pour encourager l'interaction avec les différentes équipes de la société.</li>
-        </ul>
-      </div>
-      <div>
-        <div class="sim" id="ob-sim">
-          <div class="sim-header">
-            <div class="sim-dots">
-              <div class="sim-dot" style="background:#ef4444"></div>
-              <div class="sim-dot" style="background:#f59e0b"></div>
-              <div class="sim-dot" style="background:#10b981"></div>
-            </div>
-            <img src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/unity.png" alt="Unity" style="height:16px;object-fit:contain;opacity:.85;flex-shrink:0;">
-            <span class="sim-htitle">Onboarding · Jour 1</span>
-            <div class="sim-xp">
-              <div class="xp-bar-bg"><div class="xp-bar-fill" id="xpBar" style="width:0%"></div></div>
-              <span class="xp-label" id="xpLabel">0 / 100 XP</span>
-            </div>
-          </div>
-          <div class="sim-body">
-            <div class="sim-sidebar" id="ob-sidebar"></div>
-            <div class="sim-content" id="ob-content"></div>
-          </div>
-          <div class="sim-footer">
-            <div class="prog-wrap">
-              <span class="prog-label" id="ob-progLabel">0 / 4 scènes</span>
-              <div class="prog-bg"><div class="prog-fill" id="ob-progFill" style="width:0%"></div></div>
-            </div>
-            <button class="btn-next" id="ob-btnNext" onclick="obNext()" disabled>Valider →</button>
           </div>
         </div>
       </div>
@@ -437,681 +260,5 @@ body {
   </div>
 </div>
 
-<!-- SLIDE 7 -->
-<div class="slide-container bleed-image-layout" id="slide7">
-  <div class="content-container">
-    <div class="gradient-bar"></div>
-    <h2 class="slide-title" style="margin-bottom:20px;">03. Simulations Techniques</h2>
-    <div class="content-area" style="align-items:flex-start;">
-      <p><strong>Maîtriser la complexité étape par étape.</strong></p>
-      <p>La formation sur des machines onéreuses ou des logiciels critiques implique souvent des risques de casse ou d'interruption de service.</p>
-      <p>Les scénarios interactifs permettent de reproduire fidèlement ces environnements. Vos techniciens s'exercent virtuellement, acquièrent les automatismes et maîtrisent les outils complexes avant même de toucher le matériel réel.</p>
-    </div>
-  </div>
-  <div class="image-container">
-    <img class="bleed-image-side" src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/img2.png" alt="Simulations Techniques">
-  </div>
-</div>
-
-<!-- SLIDE 8 -->
-<div class="slide-container" id="slide8">
-  <h2 class="slide-title">Cas Pratique : <span class="text-gradient">Plateforme d'Entraînement Virtuel</span></h2>
-  <div class="content-area">
-    <div class="two-column">
-      <div class="bullet-list">
-        <p>Un espace digital sécurisé pour apprendre à manipuler vos outils métiers ou équipements techniques complexes.</p>
-        <ul>
-          <li><i class="fa-solid fa-microchip"></i><strong>Manipulation guidée :</strong> Découverte pas-à-pas du fonctionnement d'un logiciel métier, d'une machine ou d'une procédure complexe.</li>
-          <li><i class="fa-solid fa-wrench"></i><strong>Répétition des gestes :</strong> L'apprenant s'exerce à son rythme pour acquérir les bons automatismes sans mobiliser les ressources réelles de l'entreprise.</li>
-          <li><i class="fa-solid fa-shield-halved"></i><strong>Droit à l'erreur valorisé :</strong> Comprendre les conséquences d'une erreur technique dans l'environnement virtuel pour mieux l'éviter sur le terrain.</li>
-        </ul>
-      </div>
-      <div>
-        <div id="tech-widget" style="border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-          <div style="background:#1e293b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #334155;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:7px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;"></div>
-            </div>
-            <span style="color:#94a3b8;font-size:clamp(8px,1.2vw,10px);letter-spacing:1.5px;text-transform:uppercase;">Sim. technique · Maintenance CNC</span>
-            <span id="tech-counter" style="color:#0ea5e9;font-size:11px;font-weight:700;">Étape 1 / 5</span>
-          </div>
-          <div style="display:flex;flex:1;min-height:0;">
-            <div style="width:clamp(100px,14vw,155px);background:#070e1a;border-right:1px solid #334155;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px;flex-shrink:0;">
-              <div id="tech-machine" style="width:clamp(70px,10vw,106px);height:clamp(80px,12vw,120px);border:2px solid #334155;border-radius:10px;background:#111827;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;transition:border-color .4s,background .4s;">
-                <span id="tech-machine-icon" style="font-size:clamp(18px,3vw,28px);transition:all .3s;">⚙️</span>
-                <span id="tech-machine-status" style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:#334155;color:#64748b;transition:all .3s;">INACTIF</span>
-                <div id="tech-led" style="position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#334155;transition:background .3s;"></div>
-              </div>
-              <div style="width:100%;">
-                <div style="color:#475569;font-size:9px;text-align:center;margin-bottom:3px;">Progression</div>
-                <div style="background:#1e293b;border-radius:3px;height:4px;"><div id="tech-prog" style="height:4px;border-radius:3px;background:#0ea5e9;width:0%;transition:width .5s;"></div></div>
-              </div>
-              <div id="tech-pts" style="color:#f59e0b;font-size:12px;font-weight:700;">0 pts</div>
-            </div>
-            <div style="flex:1;padding:clamp(8px,1.5vw,13px);display:flex;flex-direction:column;gap:7px;overflow:hidden;">
-              <div style="background:#1e293b;border-radius:9px;padding:11px;border:1px solid #334155;flex-shrink:0;">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">
-                  <div id="tech-step-icon" style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;background:#0ea5e920;"></div>
-                  <div>
-                    <div id="tech-step-title" style="color:#f1f5f9;font-size:clamp(10px,1.4vw,12px);font-weight:700;"></div>
-                    <div id="tech-step-sub" style="color:#64748b;font-size:clamp(8px,1.1vw,10px);margin-top:1px;"></div>
-                  </div>
-                </div>
-                <div id="tech-step-desc" style="color:#94a3b8;font-size:clamp(9px,1.2vw,11px);line-height:1.6;"></div>
-              </div>
-              <div id="tech-actions" style="display:flex;flex-direction:column;gap:5px;overflow-y:auto;"></div>
-              <div id="tech-feedback" class="tech-feedback"></div>
-            </div>
-          </div>
-          <div style="background:#1e293b;border-top:1px solid #334155;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
-            <div style="display:flex;gap:5px;" id="tech-dots"></div>
-            <button id="tech-btn" onclick="techNext()" disabled style="background:#0ea5e9;color:#fff;border:none;border-radius:7px;padding:6px 15px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;opacity:.4;transition:opacity .2s;">Étape suivante →</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 9 -->
-<div class="slide-container" id="slide9">
-  <h2 class="slide-title">Exemple : <span class="text-gradient">Point & Click — Sécurisation du Bureau</span></h2>
-  <div class="content-area">
-    <div class="two-column">
-      <div class="bullet-list">
-        <p>Un serious game 2D isométrique où l'apprenant identifie et corrige les risques de sécurité informatique dans un bureau type.</p>
-        <ul>
-          <li><i class="fa-solid fa-computer-mouse"></i><strong>Exploration libre :</strong> L'apprenant clique sur les éléments suspects de la scène pour les identifier et les neutraliser.</li>
-          <li><i class="fa-solid fa-shield-virus"></i><strong>Sensibilisation cyber :</strong> Mots de passe visibles, USB inconnues, sessions ouvertes — les bonnes pratiques s'ancrent par l'action.</li>
-          <li><i class="fa-solid fa-list-check"></i><strong>Liste de tâches guidée :</strong> Un système de progression clair maintient l'engagement et valide chaque action corrective effectuée.</li>
-        </ul>
-      </div>
-      <div>
-        <div id="pc-widget" style="border-radius:12px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
-          <div style="background:#1e293b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #334155;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:7px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;"></div>
-            </div>
-            <span style="color:#94a3b8;font-size:clamp(8px,1.2vw,10px);letter-spacing:1.5px;text-transform:uppercase;">Point & Click · Sécurité Bureau</span>
-            <span id="pc-score" style="color:#f59e0b;font-size:11px;font-weight:700;">0 / 4 risques trouvés</span>
-          </div>
-          <div style="display:flex;flex:1;min-height:0;">
-            <div id="pc-scene" style="flex:1;position:relative;overflow:hidden;background:linear-gradient(160deg,#0d1b2e 0%,#112240 60%,#0a1628 100%);">
-              <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px);pointer-events:none;z-index:10;"></div>
-              <div style="position:absolute;bottom:60px;left:30px;right:30px;height:140px;background:linear-gradient(180deg,#1a3a5c 0%,#152d47 100%);border-radius:8px;border:1px solid #2a4a6b;box-shadow:0 8px 32px rgba(0,0,0,.5);">
-                <div id="pc-laptop" style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);">
-                  <div style="width:130px;height:82px;background:#1e293b;border-radius:6px 6px 0 0;border:2px solid #334155;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-                    <div style="font-size:9px;color:#94a3b8;font-family:monospace;padding:6px;width:100%;">
-                      <div style="color:#10b981;margin-bottom:3px;">$ ssh prod-server</div>
-                      <div style="color:#f59e0b;margin-bottom:3px;">Session ouverte</div>
-                      <div style="color:#64748b;">utilisateur: admin</div>
-                      <div style="color:#64748b;">sans verrouillage</div>
-                    </div>
-                  </div>
-                  <div style="width:140px;height:8px;background:#334155;border-radius:0 0 4px 4px;margin-left:-5px;"></div>
-                </div>
-                <div id="pc-mug" style="position:absolute;top:-38px;left:25px;">
-                  <div style="width:34px;height:38px;background:#7c3aed;border-radius:4px 4px 6px 6px;position:relative;">
-                    <div style="position:absolute;right:-8px;top:8px;width:8px;height:16px;border:2px solid #7c3aed;border-radius:0 6px 6px 0;"></div>
-                    <div style="position:absolute;top:4px;left:4px;right:4px;height:8px;background:rgba(255,255,255,.12);border-radius:2px;"></div>
-                  </div>
-                  <div style="position:absolute;top:-12px;left:8px;font-size:9px;opacity:.6;animation:float-steam 2s infinite;">〰</div>
-                </div>
-                <div id="pc-usb" style="position:absolute;top:28px;left:160px;">
-                  <div style="display:flex;align-items:center;gap:0;">
-                    <div style="width:28px;height:11px;background:#0ea5e9;border-radius:3px;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:700;">USB</span></div>
-                    <div style="width:8px;height:7px;background:#1e293b;border-radius:0 2px 2px 0;border:1px solid #0ea5e9;"></div>
-                  </div>
-                  <div style="font-size:7px;color:#0ea5e9;margin-top:2px;text-align:center;">???</div>
-                </div>
-                <div id="pc-pass" style="position:absolute;top:-30px;right:28px;width:68px;height:60px;background:#fef08a;border-radius:2px;box-shadow:2px 2px 6px rgba(0,0,0,.3);transform:rotate(3deg);display:flex;flex-direction:column;padding:5px;justify-content:center;">
-                  <div style="font-size:7px;color:#713f12;font-weight:700;font-family:monospace;margin-bottom:3px;">MDP:</div>
-                  <div style="font-size:8px;color:#1c0a00;font-weight:700;font-family:monospace;">Admin123!</div>
-                  <div style="font-size:6px;color:#92400e;margin-top:3px;font-family:monospace;">wifi: fp2024</div>
-                </div>
-              </div>
-              <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:#0a1628;border-top:1px solid #1e3a5f;"></div>
-              <div id="pc-hotspots"></div>
-              <div id="pc-toast" style="position:absolute;top:8px;left:8px;right:8px;background:#0d2818;border:1px solid #10b981;border-radius:8px;padding:8px 12px;font-size:10px;color:#4ade80;font-weight:600;line-height:1.5;transition:opacity .4s ease;z-index:20;pointer-events:none;opacity:0;white-space:normal;text-align:left;"></div>
-            </div>
-            <div style="width:clamp(100px,16vw,150px);background:#070e1a;border-left:1px solid #334155;padding:12px 10px;display:flex;flex-direction:column;gap:8px;flex-shrink:0;overflow:hidden;">
-              <div style="color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">📋 Liste des tâches</div>
-              <div id="pc-tasklist" style="display:flex;flex-direction:column;gap:6px;flex:1;"></div>
-              <div id="pc-final-msg" style="display:none;text-align:center;padding:8px;background:#0d2818;border:1px solid #10b981;border-radius:7px;">
-                <div style="font-size:16px;margin-bottom:4px;">🏆</div>
-                <div style="color:#10b981;font-size:10px;font-weight:700;">Bureau sécurisé !</div>
-              </div>
-              <button id="pc-restart-btn" onclick="pcRestart()" style="display:none;background:transparent;border:1px solid #ec4899;color:#ec4899;border-radius:6px;padding:5px 8px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">↺ Rejouer</button>
-            </div>
-          </div>
-          <div style="background:#1e293b;border-top:1px solid #334155;padding:6px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:6px;">
-              <div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;animation:blink2 1.2s infinite;"></div>
-              <span style="color:#64748b;font-size:clamp(9px,1.2vw,10px);" id="pc-hint">Cliquez sur les éléments suspects dans le bureau</span>
-            </div>
-            <div style="display:flex;gap:4px;" id="pc-prog-dots"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 9b -->
-<div class="slide-container image-showcase" id="slide9b">
-  <div style="width:100%;display:flex;flex-direction:column;align-items:center;gap:20px;">
-    <div style="text-align:center;">
-      <div class="gradient-bar" style="margin:0 auto 16px auto;"></div>
-      <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:600;color:#1e293b;margin:0 0 6px 0;">Aperçu — Interface Point & Click 2D Isométrique</h2>
-      <p style="color:#94a3b8;font-size:clamp(12px,1.5vw,14px);margin:0;">Exemple de rendu graphique pour un serious game de sensibilisation cyber</p>
-    </div>
-    <img src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/Firefly_Gemini%20Flash_A%20graphical%20user%20interface%20for%20a%202D%20isometric%20point-and-click%20serious%20game%20about%20offi%20788456.png" alt="Interface Point & Click 2D isométrique" class="showcase-img">
-  </div>
-</div>
-
-<!-- SLIDE 10 -->
-<div class="slide-container" id="slide10">
-  <h2 class="slide-title">Exemple : <span class="text-gradient">Simulation 3D — Maintenance Industrielle</span></h2>
-  <div class="content-area">
-    <div class="two-column">
-      <div class="bullet-list">
-        <p>Une simulation à la première personne recréant l'environnement d'une usine, avec un HUD intégré guidant chaque étape de la procédure de sécurité.</p>
-        <ul>
-          <li><i class="fa-solid fa-vr-cardboard"></i><strong>Immersion totale :</strong> Vue FPS réaliste avec textures industrielles pour un apprentissage contextualisé dès le premier instant.</li>
-          <li><i class="fa-solid fa-list-ol"></i><strong>Procédures LOTO :</strong> La simulation guide les techniciens pas-à-pas à travers les protocoles de consignation — dans le bon ordre.</li>
-          <li><i class="fa-solid fa-triangle-exclamation"></i><strong>Conséquences réelles :</strong> Toute étape manquée déclenche une alerte visuelle expliquant le risque évité grâce au virtuel.</li>
-        </ul>
-      </div>
-      <div>
-        <div id="sim3d-widget" style="border-radius:12px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
-          <div style="background:#111827;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1f2d3d;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:7px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;"></div>
-              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;"></div>
-            </div>
-            <span style="color:#64748b;font-size:clamp(8px,1.1vw,10px);letter-spacing:1.5px;text-transform:uppercase;">Sim 3D · Sécurité Industrielle</span>
-            <span id="sim3d-pts" style="color:#0ea5e9;font-size:11px;font-weight:700;">0 / 3 étapes</span>
-          </div>
-          <div style="flex:1;position:relative;overflow:hidden;display:flex;min-height:0;">
-            <div id="sim3d-scene" style="flex:1;position:relative;overflow:hidden;">
-              <div style="position:absolute;inset:0;background:linear-gradient(180deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#533483 100%);"></div>
-              <svg style="position:absolute;bottom:0;left:0;width:100%;height:55%;opacity:.18;" viewBox="0 0 500 220" preserveAspectRatio="none">
-                <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.8"/></pattern></defs>
-                <rect width="500" height="220" fill="url(#grid)" transform="scale(1,-1) translate(0,-220)"/>
-              </svg>
-              <div id="sim3d-machine" style="position:absolute;bottom:80px;left:50%;transform:translateX(-50%);transition:filter .4s;">
-                <div style="width:140px;height:100px;background:linear-gradient(180deg,#374151,#1f2937);border-radius:6px 6px 0 0;border:2px solid #4b5563;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,0,0,.6);">
-                  <div id="sim3d-blade" style="width:70px;height:70px;border-radius:50%;border:4px solid #6b7280;border-top-color:#9ca3af;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 12px rgba(0,0,0,.5);">
-                    <div style="width:6px;height:6px;border-radius:50%;background:#374151;border:2px solid #9ca3af;"></div>
-                    <svg style="position:absolute;inset:0;" viewBox="0 0 70 70"><circle cx="35" cy="35" r="30" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="8 4"/></svg>
-                  </div>
-                  <div id="sim3d-warnlight" style="position:absolute;top:8px;right:10px;width:14px;height:14px;border-radius:50%;background:#ef4444;box-shadow:0 0 20px #ef4444,0 0 40px rgba(239,68,68,.4);animation:warningFlash 0.7s infinite;transition:all .4s;"></div>
-                  <div style="position:absolute;bottom:6px;left:6px;right:6px;height:22px;background:#111827;border-radius:3px;display:flex;align-items:center;justify-content:center;gap:4px;">
-                    <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 6px #ef4444;"></div>
-                    <div style="width:8px;height:8px;border-radius:50%;background:#334155;"></div>
-                    <div style="width:14px;height:5px;background:#334155;border-radius:2px;"></div>
-                  </div>
-                </div>
-                <div style="width:160px;height:22px;background:#1f2937;border-radius:0 0 4px 4px;margin-left:-10px;border:2px solid #374151;border-top:none;"></div>
-                <div id="sim3d-estop-area" onclick="sim3dAction()" style="position:absolute;top:18px;left:-38px;width:36px;height:36px;cursor:pointer;z-index:15;transition:opacity .3s;" title="Arrêt d'urgence">
-                  <div style="width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff6b6b,#dc2626);border:2px solid #ef4444;box-shadow:0 0 12px rgba(239,68,68,.6);display:flex;align-items:center;justify-content:center;animation:warningFlash 1s infinite;">
-                    <span style="font-size:8px;color:#fff;font-weight:700;text-align:center;line-height:1.1;">STOP</span>
-                  </div>
-                </div>
-              </div>
-              <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(180deg,#1c2333,#111827);border-top:2px solid #1f2d3d;"></div>
-              <div style="position:absolute;bottom:20px;right:30px;pointer-events:none;">
-                <div style="width:50px;height:70px;background:linear-gradient(160deg,#d97706,#92400e);border-radius:12px 12px 8px 8px;transform:rotate(-15deg);position:relative;box-shadow:-3px 3px 12px rgba(0,0,0,.4);">
-                  <div style="position:absolute;top:8px;left:8px;width:8px;height:24px;background:#b45309;border-radius:3px;"></div>
-                  <div style="position:absolute;top:8px;left:20px;width:8px;height:20px;background:#b45309;border-radius:3px;"></div>
-                  <div style="position:absolute;top:8px;left:32px;width:8px;height:22px;background:#b45309;border-radius:3px;"></div>
-                </div>
-              </div>
-              <div id="sim3d-warn-overlay" style="position:absolute;inset:0;border:3px solid #ef4444;pointer-events:none;opacity:1;animation:warningFlash 0.7s infinite;"></div>
-              <div id="sim3d-success-overlay" style="position:absolute;inset:0;background:rgba(16,185,129,.05);border:2px solid #10b981;pointer-events:none;opacity:0;transition:opacity .5s;"></div>
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;pointer-events:none;">
-                <div style="position:absolute;top:5px;left:0;width:12px;height:2px;background:rgba(255,255,255,.4);"></div>
-                <div style="position:absolute;left:5px;top:0;width:2px;height:12px;background:rgba(255,255,255,.4);"></div>
-              </div>
-              <div id="sim3d-padlock-zone" onclick="sim3dAction()" style="display:none;position:absolute;bottom:185px;left:calc(50% - 70px - 30px);width:38px;height:38px;cursor:pointer;z-index:15;" title="Poser le cadenas de consignation">
-                <div style="width:38px;height:38px;border-radius:8px;background:radial-gradient(circle at 35% 35%,#38bdf8,#0ea5e9);border:2px solid #0ea5e9;box-shadow:0 0 14px rgba(14,165,233,.7);display:flex;align-items:center;justify-content:center;animation:warningFlash 1.2s infinite;"><span style="font-size:16px;">🔒</span></div>
-                <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:8px;color:#0ea5e9;font-weight:700;white-space:nowrap;background:rgba(0,0,0,.7);padding:2px 5px;border-radius:3px;">Consigner ici</div>
-              </div>
-              <div id="sim3d-inspect-zone" onclick="sim3dAction()" style="display:none;position:absolute;bottom:160px;left:50%;transform:translateX(-50%);width:42px;height:42px;cursor:pointer;z-index:15;" title="Inspecter le blocage">
-                <div style="width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#34d399,#10b981);border:2px solid #10b981;box-shadow:0 0 14px rgba(16,185,129,.7);display:flex;align-items:center;justify-content:center;animation:warningFlash 1.2s infinite;"><span style="font-size:18px;">🔍</span></div>
-                <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:8px;color:#10b981;font-weight:700;white-space:nowrap;background:rgba(0,0,0,.7);padding:2px 5px;border-radius:3px;">Inspecter</div>
-              </div>
-              <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);pointer-events:none;z-index:5;"></div>
-            </div>
-            <div style="width:clamp(110px,16vw,158px);background:rgba(0,0,0,.7);border-left:1px solid #1f2d3d;padding:10px;display:flex;flex-direction:column;gap:6px;flex-shrink:0;overflow-y:auto;">
-              <div style="color:#475569;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;">📋 Procédure LOTO</div>
-              <div id="sim3d-checklist" style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;"></div>
-              <div style="margin-top:auto;flex-shrink:0;">
-                <div style="color:#475569;font-size:9px;margin-bottom:4px;">Sécurité</div>
-                <div style="background:#1f2d3d;border-radius:3px;height:4px;"><div id="sim3d-safety-bar" style="height:4px;border-radius:3px;background:#ef4444;width:0%;transition:width .6s,background .4s;"></div></div>
-                <div id="sim3d-safety-pct" style="color:#ef4444;font-size:10px;font-weight:700;margin-top:3px;transition:color .4s;">0%</div>
-              </div>
-              <div id="sim3d-final" style="display:none;text-align:center;padding:8px;background:#0d2818;border:1px solid #10b981;border-radius:7px;flex-shrink:0;">
-                <div style="font-size:16px;margin-bottom:3px;">✅</div>
-                <div style="color:#10b981;font-size:10px;font-weight:700;">Zone sécurisée !</div>
-                <div style="color:#64748b;font-size:9px;margin-top:2px;">Protocole LOTO<br>complet</div>
-              </div>
-              <button id="sim3d-restart-btn" onclick="sim3dRestart()" style="display:none;background:transparent;border:1px solid #0ea5e9;color:#0ea5e9;border-radius:6px;padding:6px 8px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0;width:100%;">↺ Recommencer</button>
-            </div>
-          </div>
-          <div style="background:#111827;border-top:1px solid #1f2d3d;padding:7px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-            <div style="display:flex;align-items:center;gap:6px;min-width:0;flex:1;">
-              <div id="sim3d-status-dot" style="width:6px;height:6px;border-radius:50%;background:#ef4444;animation:warningFlash .7s infinite;flex-shrink:0;"></div>
-              <span id="sim3d-hint" style="color:#64748b;font-size:clamp(9px,1.2vw,10px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Machine en marche — DANGER. Appuyez sur STOP.</span>
-            </div>
-            <button id="sim3d-action-btn" onclick="sim3dAction()" style="background:#ef4444;color:#fff;border:none;border-radius:7px;padding:6px 10px;font-size:clamp(9px,1.2vw,10px);font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 0 15px rgba(239,68,68,.4);transition:all .3s;flex-shrink:0;margin-left:8px;">🛑 Arrêt d'urgence</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 10b -->
-<div class="slide-container image-showcase" id="slide10b">
-  <div style="width:100%;display:flex;flex-direction:column;align-items:center;gap:20px;">
-    <div style="text-align:center;">
-      <div class="gradient-bar" style="margin:0 auto 16px auto;"></div>
-      <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:600;color:#1e293b;margin:0 0 6px 0;">Aperçu — Simulation 3D Première Personne</h2>
-      <p style="color:#94a3b8;font-size:clamp(12px,1.5vw,14px);margin:0;">Exemple de rendu immersif pour une simulation de maintenance industrielle en usine bois</p>
-    </div>
-    <img src="https://148148443.fs1.hubspotusercontent-eu1.net/hubfs/148148443/Firefly_Gemini%20Flash_A%20first-person%20perspective%20view%20inside%20a%20detailed%203D%20technical%20simulation%20of%20a%20wood%20f%20788456.png" alt="Simulation 3D maintenance industrielle" class="showcase-img">
-  </div>
-</div>
-
-<!-- SLIDE 11 -->
-<div class="slide-container" id="slide11">
-  <div class="gradient-bar"></div>
-  <h2 class="slide-title" style="text-align:center;margin-bottom:clamp(20px,4vw,60px);">L'Impact de l'Apprentissage Actif</h2>
-  <div class="content-area">
-    <div class="two-column highlight-numbers-layout">
-      <div>
-        <div class="number-block">
-          <div class="number">75%</div>
-          <div class="number-label">Taux de Rétention*</div>
-        </div>
-        <div class="number-block">
-          <div class="number">4x</div>
-          <div class="number-label">Plus Rapide à Assimiler**</div>
-        </div>
-      </div>
-      <div>
-        <h3 style="color:#ec4899;font-size:clamp(18px,2.5vw,32px);margin-bottom:20px;">Pourquoi le Serious Game fonctionne ?</h3>
-        <p style="font-size:clamp(14px,1.8vw,22px);">L'interactivité des solutions digitales transforme les apprenants et clients passifs en <strong>acteurs engagés</strong>.</p>
-        <p style="font-size:clamp(14px,1.8vw,22px);">En mobilisant l'attention par le jeu et la simulation, vous maximisez l'impact de vos messages et le retour sur investissement (ROI) de vos dispositifs d'entreprise.</p>
-        <p style="font-size:clamp(11px,1.2vw,14px);margin-top:30px;color:#94a3b8;">* contre 10% pour la lecture simple. | ** Etude PwC sur la réalité virtuelle.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 12 -->
-<div class="slide-container" id="slide12">
-  <div class="qa-layout">
-    <div class="gradient-bar" style="margin:0 auto 30px auto;width:100px;"></div>
-    <h2>Prêt à <span class="text-gradient">digitaliser</span> ?</h2>
-    <p>Passez à l'étape supérieure en intégrant l'interactivité au cœur de vos processus.</p>
-  <div class="contact-info">
-  <i class="fa-solid fa-globe" style="color:#0ea5e9;margin-right:10px;"></i> 
-  <a href="https://www.freelance-provider.com" target="_blank" style="text-decoration:none; color:inherit;">
-    www.freelance-provider.com
-  </a> 
-  <br><br>
-
-  <i class="fa-solid fa-envelope" style="color:#ec4899;margin-right:10px;"></i> 
-  <a href="mailto:contact@freelance-provider.com" style="text-decoration:none; color:inherit;">
-    contact@freelance-provider.com
-  </a>
-</div>
-  </div>
-</div>
-
-<script>
-/* ═══ ONBOARDING SIMULATOR ═══ */
-const OB_SCENES = [
-  { id:0, icon:"🏢", color:"#1d4ed8", label:"Culture", title:"Valeurs & Mission", sub:"Comprendre l'ADN de l'entreprise", badge:"Découverte",
-    q:"Quelle valeur fondamentale guide toutes les décisions chez Freelance Provider ?",
-    choices:["La rentabilité à court terme","L'excellence et la satisfaction client","La rapidité d'exécution avant tout","Le volume de projets traités"],
-    correct:1, ok:"Exactement ! La satisfaction client est au cœur de chaque décision. Elle structure nos méthodes de travail et notre relation avec tous nos partenaires.",
-    ko:"Pas tout à fait. C'est l'excellence et la satisfaction client qui priment — cette valeur guide chaque choix stratégique." },
-  { id:1, icon:"👥", color:"#7c3aed", label:"Équipe", title:"Organisation & Rôles", sub:"Naviguer dans l'organigramme", badge:"Relationnel",
-    q:"Vous avez une question technique urgente sur un projet client. À qui vous adressez-vous en premier ?",
-    choices:["Directement au PDG pour aller vite","À votre manager direct ou lead technique","Au service comptabilité","Au client sans consulter l'équipe"],
-    correct:1, ok:"Correct ! Votre manager direct ou lead technique est votre premier interlocuteur. Il centralise les demandes et vous oriente vers la bonne ressource.",
-    ko:"Attention ! Le canal correct est toujours votre manager direct. Court-circuiter la hiérarchie crée des problèmes de communication et de responsabilité." },
-  { id:2, icon:"⚙️", color:"#0f766e", label:"Outils", title:"Process & Procédures", sub:"Maîtriser les protocoles internes", badge:"Opérationnel",
-    q:"Un client signale un bug bloquant un vendredi soir à 19h. Quelle est la bonne procédure ?",
-    choices:["Ignorer et traiter lundi matin","Régler seul sans prévenir personne","Créer un ticket P0 ET alerter le manager d'astreinte","Envoyer un email au client pour reporter à lundi"],
-    correct:2, ok:"Parfait ! Ticket P0 + alerte astreinte est la procédure standard. Traçabilité et mobilisation rapide de la bonne équipe sont garanties.",
-    ko:"La procédure impose de créer un ticket P0 ET d'alerter le manager d'astreinte — les deux actions sont indissociables." },
-  { id:3, icon:"🎯", color:"#b45309", label:"Mission", title:"Mise en situation commerciale", sub:"Validation des acquis — Jour 1", badge:"Évaluation",
-    q:"Vous présentez les Serious Games à un prospect sceptique. Quel argument est le plus percutant ?",
-    choices:["'C'est moins cher que la formation classique'","'75% de rétention vs 10% — ROI mesurable dès le 1er mois'","'Tout le monde fait du e-learning maintenant'","'Notre outil est simple à utiliser'"],
-    correct:1, ok:"Excellent ! Des chiffres concrets (75% vs 10%) + ROI mesurable créent un argument imparable face à tout prospect sceptique.",
-    ko:"Cet argument manque d'impact. Le plus différenciant : 75% de rétention vs 10% + ROI mesurable — les chiffres parlent d'eux-mêmes." }
-];
-let obCur=0, obAnswered=false, obXP=0, obDone=[];
-function obRenderSidebar(){
-  document.getElementById('ob-sidebar').innerHTML=OB_SCENES.map(s=>{
-    const done=obDone.includes(s.id), active=s.id===obCur;
-    return `<div class="sb-item ${active?'active':''} ${done?'done':''}" onclick="obGoTo(${s.id})">
-      <div class="sb-marker" style="background:${done?'#10b981':active?s.color:'#334155'}"></div>
-      <span class="sb-name">${s.label}</span></div>`;
-  }).join('');
-}
-function obRenderContent(){
-  const sc=OB_SCENES[obCur], alreadyDone=obDone.includes(sc.id), c=document.getElementById('ob-content');
-  if(alreadyDone&&!obAnswered){
-    c.innerHTML=`<div class="scene-complete"><div class="sc-emoji">✅</div><div class="sc-title">Scène complétée !</div><div class="sc-sub">Naviguez vers une autre ou avancez.</div><div class="sc-xp">+25 XP obtenus</div></div>`;
-    const btn=document.getElementById('ob-btnNext'); btn.disabled=obCur>=OB_SCENES.length-1; btn.textContent=obCur>=OB_SCENES.length-1?'Terminé ✓':'Scène suivante →'; return;
-  }
-  c.innerHTML=`<div class="scene-header"><div class="scene-icon" style="background:${sc.color}22;font-size:16px;">${sc.icon}</div><div><div class="scene-title">${sc.title}</div><div class="scene-sub">${sc.sub}</div></div><span class="scene-badge" style="background:${sc.color}22;color:${sc.color};">${sc.badge}</span></div>
-  <div class="question-card"><div class="question-txt">${sc.q}</div><div class="choices" id="ob-choices">${sc.choices.map((ch,i)=>`<div class="choice" id="obc${i}" onclick="obPick(${i})"><div class="choice-letter">${String.fromCharCode(65+i)}</div>${ch}</div>`).join('')}</div></div>
-  <div class="ob-feedback" id="ob-fb"></div>`;
-  obAnswered=false;
-  const btn=document.getElementById('ob-btnNext'); btn.disabled=true; btn.textContent=obCur>=OB_SCENES.length-1?'Terminer ✓':'Scène suivante →';
-}
-function obRenderFooter(){
-  const done=obDone.length;
-  document.getElementById('ob-progLabel').textContent=done+' / '+OB_SCENES.length+' scènes';
-  document.getElementById('ob-progFill').style.width=Math.round((done/OB_SCENES.length)*100)+'%';
-}
-function obRender(){ obRenderSidebar(); obRenderContent(); obRenderFooter(); }
-function obPick(i){
-  if(obAnswered)return; obAnswered=true;
-  const sc=OB_SCENES[obCur]; document.querySelectorAll('.choice').forEach(c=>c.classList.add('disabled'));
-  document.getElementById('obc'+i).classList.add(i===sc.correct?'correct':'wrong');
-  if(i!==sc.correct) document.getElementById('obc'+sc.correct).classList.add('correct');
-  const fb=document.getElementById('ob-fb'), isOk=i===sc.correct;
-  fb.className='ob-feedback show '+(isOk?'ok':'ko'); fb.textContent=(isOk?'✓ ':'✗ ')+(isOk?sc.ok:sc.ko);
-  if(isOk&&!obDone.includes(obCur)){ obDone.push(obCur); obXP=Math.min(100,obXP+25); document.getElementById('xpBar').style.width=obXP+'%'; document.getElementById('xpLabel').textContent=obXP+' / 100 XP'; obRenderFooter(); obRenderSidebar(); }
-  document.getElementById('ob-btnNext').disabled=false;
-}
-function obNext(){
-  if(obDone.length===OB_SCENES.length){ obShowFinish(); return; }
-  if(obCur<OB_SCENES.length-1){ obCur++; obAnswered=false; obRender(); }
-  else if(obDone.length===OB_SCENES.length) obShowFinish();
-}
-function obGoTo(i){ obCur=i; obAnswered=false; obRender(); }
-function obShowFinish(){
-  document.getElementById('ob-content').innerHTML=`<div class="finish-screen"><div style="font-size:28px;">🏆</div><div class="finish-title">Parcours Jour 1 complété !</div><div class="finish-sub">Vous êtes prêt à démarrer votre mission.</div><div class="finish-stats"><div class="fstat"><div class="fstat-val" style="color:#10b981;">${obDone.length}/4</div><div class="fstat-lbl">Scènes réussies</div></div><div class="fstat"><div class="fstat-val" style="color:#f59e0b;">${obXP} XP</div><div class="fstat-lbl">Points gagnés</div></div><div class="fstat"><div class="fstat-val" style="color:#ec4899;">${Math.round((obDone.length/4)*100)}%</div><div class="fstat-lbl">Score final</div></div></div><button class="btn-restart" onclick="obRestart()">↺ Recommencer</button></div>`;
-  document.getElementById('ob-btnNext').disabled=true; document.getElementById('ob-btnNext').textContent='Terminé ✓';
-}
-function obRestart(){ obCur=0; obAnswered=false; obXP=0; obDone=[]; document.getElementById('xpBar').style.width='0%'; document.getElementById('xpLabel').textContent='0 / 100 XP'; obRender(); }
-obRender();
-
-/* ═══ TECH SIMULATOR ═══ */
-const TECH_STEPS = [
-  { icon:"🔍", color:"#0ea5e9", title:"Inspection visuelle", sub:"Étape 1 : Vérification pré-démarrage",
-    desc:"Avant toute intervention, identifiez les éléments à inspecter sur la machine CNC : capots, câblage, voyants d'état.",
-    actions:["Vérifier l'absence de corps étrangers dans la zone de travail","Ouvrir l'armoire électrique sans couper l'alimentation","Contrôler visuellement les câbles d'alimentation et de commande","Consulter le journal des alertes sur l'IHM"],
-    correct:2, machine:"🔍", status:"INSPECTION", ledColor:"#f59e0b", pts:20,
-    ok:"✓ Bon réflexe ! Contrôler les câbles sans toucher aux commandes est la première étape sécurisée.",
-    ko:"✗ Action risquée. Ouvrir une armoire sous tension sans protocole EPI expose à un arc électrique." },
-  { icon:"⚡", color:"#f59e0b", title:"Coupure alimentation", sub:"Étape 2 : Consignation électrique",
-    desc:"La consignation est obligatoire avant toute intervention mécanique. Respectez scrupuleusement l'ordre des opérations.",
-    actions:["Couper directement le disjoncteur principal","Appuyer sur Arrêt d'Urgence, couper l'alimentation, poser un cadenas de consignation","Débrancher uniquement le câble moteur","Éteindre l'écran de commande et continuer"],
-    correct:1, machine:"⚡", status:"CONSIGNÉ", ledColor:"#ef4444", pts:25,
-    ok:"✓ Procédure LOTO respectée ! Arrêt d'urgence + coupure + cadenas = zéro risque de remise en marche accidentelle.",
-    ko:"✗ Procédure non conforme. La consignation impose : Arrêt d'urgence → coupure → cadenas. Les 3 étapes sont obligatoires." },
-  { icon:"🔧", color:"#10b981", title:"Diagnostic de panne", sub:"Étape 3 : Identification du défaut",
-    desc:"L'IHM affiche l'erreur E-042 : défaut axe X. Quelle est la bonne démarche de diagnostic ?",
-    actions:["Remplacer immédiatement le servo-moteur","Consulter le manuel de maintenance pour le code E-042, puis tester le capteur de fin de course","Appeler le constructeur sans investigation préalable","Redémarrer la machine en espérant que l'erreur disparaisse"],
-    correct:1, machine:"🔧", status:"DIAGNOSTIC", ledColor:"#f59e0b", pts:25,
-    ok:"✓ Méthode rigoureuse ! Consulter la documentation avant d'agir évite les remplacements coûteux inutiles.",
-    ko:"✗ Remplacer d'emblée un servo-moteur sans diagnostic coûte 1200€ en moyenne pour rien." },
-  { icon:"🛠️", color:"#7c3aed", title:"Remplacement du composant", sub:"Étape 4 : Intervention mécanique",
-    desc:"Le capteur de fin de course est défectueux. Comment procéder au remplacement en toute sécurité ?",
-    actions:["Intervenir rapidement sans re-consigner (la machine est déjà arrêtée)","Re-consigner, remplacer le capteur avec les outils homologués, renseigner le bon d'intervention","Utiliser n'importe quel capteur disponible en stock","Bypasser le capteur temporairement pour relancer la production"],
-    correct:1, machine:"🛠️", status:"RÉPARATION", ledColor:"#7c3aed", pts:20,
-    ok:"✓ Parfait ! Re-consignation systématique + outillage homologué + traçabilité = intervention conforme aux normes ISO.",
-    ko:"✗ Même si la machine semble arrêtée, une re-consignation est obligatoire." },
-  { icon:"✅", color:"#10b981", title:"Remise en service", sub:"Étape 5 : Tests et validation",
-    desc:"L'intervention est terminée. Quelle séquence de remise en service est correcte ?",
-    actions:["Retirer le cadenas, remettre sous tension directement et lancer en production","Retirer cadenas, remettre sous tension, effectuer un cycle de test à vide, valider avec le chef d'atelier, renseigner le rapport","Relancer la machine et observer si l'erreur réapparaît","Passer la main à l'opérateur sans vérification"],
-    correct:1, machine:"✅", status:"VALIDÉ", ledColor:"#10b981", pts:10,
-    ok:"✓ Procédure complète respectée ! Test à vide + validation hiérarchique + rapport = traçabilité totale.",
-    ko:"✗ Une remise en service sans cycle de test à vide ni validation du chef d'atelier est non conforme." }
-];
-let techCur=0, techAnswered=false, techPts=0, techDone=[];
-function techRender(){
-  const s=TECH_STEPS[techCur];
-  document.getElementById('tech-counter').textContent='Étape '+(techCur+1)+' / '+TECH_STEPS.length;
-  document.getElementById('tech-machine-icon').textContent=s.machine;
-  document.getElementById('tech-machine-status').textContent=s.status;
-  document.getElementById('tech-machine-status').style.background=s.ledColor+'22';
-  document.getElementById('tech-machine-status').style.color=s.ledColor;
-  document.getElementById('tech-led').style.background=techDone.includes(techCur)?'#10b981':s.ledColor;
-  document.getElementById('tech-machine').style.borderColor=techDone.includes(techCur)?'#10b981':s.color;
-  document.getElementById('tech-prog').style.width=Math.round((techDone.length/TECH_STEPS.length)*100)+'%';
-  document.getElementById('tech-pts').textContent=techPts+' pts';
-  document.getElementById('tech-step-icon').textContent=s.icon;
-  document.getElementById('tech-step-icon').style.background=s.color+'22';
-  document.getElementById('tech-step-title').textContent=s.title;
-  document.getElementById('tech-step-sub').textContent=s.sub;
-  document.getElementById('tech-step-desc').textContent=s.desc;
-  document.getElementById('tech-actions').innerHTML=s.actions.map((a,i)=>`<div class="tech-action" id="ta${i}" onclick="techPick(${i})"><div class="tech-action-num">${i+1}</div>${a}</div>`).join('');
-  document.getElementById('tech-feedback').className='tech-feedback';
-  document.getElementById('tech-feedback').textContent='';
-  document.getElementById('tech-dots').innerHTML=TECH_STEPS.map((_,i)=>`<div style="width:6px;height:6px;border-radius:50%;background:${techDone.includes(i)?'#10b981':i===techCur?'#0ea5e9':'#334155'};transition:background .3s;"></div>`).join('');
-  techAnswered=false;
-  const btn=document.getElementById('tech-btn'); btn.disabled=true; btn.style.opacity='.4'; btn.textContent=techCur>=TECH_STEPS.length-1?'Terminer ✓':'Étape suivante →';
-}
-function techPick(i){
-  if(techAnswered)return; techAnswered=true;
-  const s=TECH_STEPS[techCur]; document.querySelectorAll('.tech-action').forEach(a=>a.classList.add('disabled'));
-  document.getElementById('ta'+i).classList.add(i===s.correct?'correct':'wrong');
-  if(i!==s.correct) document.getElementById('ta'+s.correct).classList.add('correct');
-  const fb=document.getElementById('tech-feedback'), isOk=i===s.correct;
-  fb.className='tech-feedback show '+(isOk?'ok':'ko'); fb.textContent=isOk?s.ok:s.ko;
-  if(isOk&&!techDone.includes(techCur)){ techDone.push(techCur); techPts+=s.pts; }
-  const btn=document.getElementById('tech-btn'); btn.disabled=false; btn.style.opacity='1';
-}
-function techNext(){
-  if(techCur<TECH_STEPS.length-1){ techCur++; techRender(); }
-  else{
-    document.getElementById('tech-widget').innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;text-align:center;padding:20px;background:#0f172a;border-radius:12px;">
-      <div style="font-size:32px;">🏆</div>
-      <div style="color:#f1f5f9;font-size:16px;font-weight:700;">Procédure maîtrisée !</div>
-      <div style="color:#64748b;font-size:12px;">Toutes les étapes de maintenance CNC complétées.</div>
-      <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;justify-content:center;">
-        <div style="background:#1e293b;border-radius:9px;padding:10px 16px;border:1px solid #334155;text-align:center;"><div style="color:#10b981;font-size:22px;font-weight:700;">${techDone.length}/5</div><div style="color:#64748b;font-size:10px;">Étapes réussies</div></div>
-        <div style="background:#1e293b;border-radius:9px;padding:10px 16px;border:1px solid #334155;text-align:center;"><div style="color:#f59e0b;font-size:22px;font-weight:700;">${techPts}</div><div style="color:#64748b;font-size:10px;">Points / 100</div></div>
-        <div style="background:#1e293b;border-radius:9px;padding:10px 16px;border:1px solid #334155;text-align:center;"><div style="color:#0ea5e9;font-size:22px;font-weight:700;">${Math.round((techDone.length/5)*100)}%</div><div style="color:#64748b;font-size:10px;">Score</div></div>
-      </div>
-      <button onclick="techRestart()" style="background:transparent;border:1px solid #0ea5e9;color:#0ea5e9;border-radius:7px;padding:7px 18px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;margin-top:4px;">↺ Recommencer</button>
-    </div>`;
-  }
-}
-function techRestart(){ techCur=0; techAnswered=false; techPts=0; techDone=[]; techRender(); }
-techRender();
-
-/* ═══ POINT & CLICK SIMULATOR ═══ */
-const PC_HAZARDS = [
-  { id:'mug', label:'Café près du clavier', x:'18%', y:'42%', found:false,
-    msg:'☕ Risque dégât liquide ! Le mug doit être éloigné des équipements électroniques.', task:'Éloigner le café du poste' },
-  { id:'laptop', label:'Session non verrouillée', x:'44%', y:'28%', found:false,
-    msg:'💻 Poste non verrouillé ! Win+L avant de quitter votre bureau.', task:'Verrouiller la session' },
-  { id:'usb', label:'Clé USB inconnue', x:'63%', y:'55%', found:false,
-    msg:'🔌 Clé USB suspecte ! Ne branchez jamais un périphérique inconnu — risque malware.', task:'Retirer la clé USB' },
-  { id:'pass', label:'Mot de passe visible', x:'76%', y:'36%', found:false,
-    msg:'📝 Mot de passe exposé ! Utilisez un gestionnaire de mots de passe.', task:'Supprimer la note de mots de passe' }
-];
-let pcFound=0, pcToastTimer=null;
-function pcInit(){
-  const hotspots=document.getElementById('pc-hotspots'); hotspots.innerHTML='';
-  PC_HAZARDS.forEach(h=>{
-    h.found=false;
-    const el=document.createElement('div');
-    el.className='pc-hazard'; el.id='pc-h-'+h.id;
-    el.style.cssText=`left:${h.x};top:${h.y};width:36px;height:36px;transform:translate(-50%,-50%);z-index:15;`;
-    el.innerHTML=`<div class="pc-ping"></div><div class="pc-ping2"></div><div class="pc-dot"></div>`;
-    el.onclick=()=>pcClick(h.id); hotspots.appendChild(el);
-  });
-  pcFound=0;
-  document.getElementById('pc-score').textContent='0 / 4 risques trouvés';
-  document.getElementById('pc-score').style.color='#f59e0b';
-  document.getElementById('pc-hint').textContent='Cliquez sur les éléments suspects dans le bureau';
-  document.getElementById('pc-final-msg').style.display='none';
-  document.getElementById('pc-restart-btn').style.display='none';
-  const toast=document.getElementById('pc-toast'); toast.style.opacity='0'; toast.textContent='';
-  pcRenderTasks(); pcRenderDots();
-}
-function pcRenderTasks(){
-  document.getElementById('pc-tasklist').innerHTML=PC_HAZARDS.map(h=>
-    `<div style="display:flex;align-items:flex-start;gap:6px;padding:5px 0;border-bottom:1px solid #1e293b;">
-      <div style="width:14px;height:14px;border-radius:3px;border:1.5px solid ${h.found?'#10b981':'#334155'};background:${h.found?'#10b981':'transparent'};flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .3s;">${h.found?'<span style="color:#fff;font-size:8px;font-weight:700;">✓</span>':''}</div>
-      <span style="font-size:9px;color:${h.found?'#10b981':'#64748b'};line-height:1.4;transition:color .3s;${h.found?'text-decoration:line-through;':''}">${h.task}</span>
-    </div>`
-  ).join('');
-}
-function pcRenderDots(){
-  document.getElementById('pc-prog-dots').innerHTML=PC_HAZARDS.map(h=>
-    `<div style="width:7px;height:7px;border-radius:50%;background:${h.found?'#10b981':'#334155'};transition:background .3s;"></div>`
-  ).join('');
-}
-function pcClick(id){
-  const h=PC_HAZARDS.find(x=>x.id===id); if(!h||h.found)return;
-  h.found=true; pcFound++;
-  const el=document.getElementById('pc-h-'+id); if(el) el.classList.add('found');
-  const toast=document.getElementById('pc-toast');
-  toast.textContent=h.msg; toast.style.opacity='1';
-  if(pcToastTimer) clearTimeout(pcToastTimer);
-  pcToastTimer=setTimeout(()=>{ toast.style.opacity='0'; }, 3000);
-  document.getElementById('pc-score').textContent=pcFound+' / 4 risques trouvés';
-  document.getElementById('pc-hint').textContent=pcFound<4?`Encore ${4-pcFound} risque${4-pcFound>1?'s':''} à identifier…`:'Bureau entièrement sécurisé !';
-  pcRenderTasks(); pcRenderDots();
-  if(pcFound===4){
-    document.getElementById('pc-final-msg').style.display='block';
-    document.getElementById('pc-restart-btn').style.display='block';
-    document.getElementById('pc-score').style.color='#10b981';
-  }
-}
-function pcRestart(){ pcInit(); }
-pcInit();
-
-/* ═══ 3D SIMULATION HUD ═══ */
-const SIM3D_STEPS = [
-  { label:"Arrêt d'urgence", hint:"Machine en marche — DANGER. Appuyez sur STOP.", btnLabel:"🛑 Arrêt d'urgence", safetyPct:33, safetyColor:"#f59e0b" },
-  { label:"Consignation (LOTO)", hint:"Moteur stoppé. Posez le cadenas de consignation.", btnLabel:"🔒 Consigner + cadenas", safetyPct:66, safetyColor:"#0ea5e9" },
-  { label:"Inspection du blocage", hint:"Zone neutralisée. Inspectez la scie.", btnLabel:"🔍 Inspecter la zone", safetyPct:100, safetyColor:"#10b981" }
-];
-let sim3dStep=0, sim3dDone=[];
-function sim3dRenderChecklist(){
-  document.getElementById('sim3d-checklist').innerHTML=SIM3D_STEPS.map((s,i)=>{
-    const done=sim3dDone.includes(i), active=i===sim3dStep&&!done;
-    return `<div class="hud-step ${done?'done':''} ${active?'active':''}">
-      <div class="hud-step-num">${done?'✓':(i+1)}</div>
-      <div class="hud-step-txt">${s.label}</div>
-    </div>`;
-  }).join('');
-}
-function sim3dUpdateBtn(){
-  if(sim3dStep>=SIM3D_STEPS.length) return;
-  const s=SIM3D_STEPS[sim3dStep];
-  const btn=document.getElementById('sim3d-action-btn');
-  const colors=['#ef4444','#0ea5e9','#10b981'];
-  const glows=['rgba(239,68,68,.4)','rgba(14,165,233,.4)','rgba(16,185,129,.4)'];
-  btn.textContent=s.btnLabel;
-  btn.style.background=colors[sim3dStep];
-  btn.style.boxShadow=`0 0 15px ${glows[sim3dStep]}`;
-  btn.disabled=false;
-  document.getElementById('sim3d-hint').textContent=s.hint;
-  const dot=document.getElementById('sim3d-status-dot');
-  dot.style.background=colors[sim3dStep];
-  dot.style.animation=sim3dStep===0?'warningFlash .7s infinite':'none';
-}
-function sim3dAction(){
-  if(sim3dStep>=SIM3D_STEPS.length) return;
-  const s=SIM3D_STEPS[sim3dStep];
-  if(sim3dStep===0){
-    document.getElementById('sim3d-blade').style.animation='none';
-    document.getElementById('sim3d-warnlight').style.animation='none';
-    document.getElementById('sim3d-warnlight').style.background='#f59e0b';
-    document.getElementById('sim3d-warnlight').style.boxShadow='0 0 10px #f59e0b';
-    document.getElementById('sim3d-warn-overlay').style.animation='none';
-    document.getElementById('sim3d-warn-overlay').style.opacity='0';
-    document.getElementById('sim3d-estop-area').style.display='none';
-    document.getElementById('sim3d-padlock-zone').style.display='block';
-    document.getElementById('sim3d-action-btn').disabled=true;
-    document.getElementById('sim3d-action-btn').style.background='#334155';
-    document.getElementById('sim3d-action-btn').style.boxShadow='none';
-    document.getElementById('sim3d-action-btn').textContent='→ Cliquez le cadenas dans la scène';
-  } else if(sim3dStep===1){
-    document.getElementById('sim3d-padlock-zone').style.display='none';
-    document.getElementById('sim3d-inspect-zone').style.display='block';
-    document.getElementById('sim3d-warnlight').style.background='#334155';
-    document.getElementById('sim3d-warnlight').style.boxShadow='none';
-    document.getElementById('sim3d-action-btn').disabled=true;
-    document.getElementById('sim3d-action-btn').style.background='#334155';
-    document.getElementById('sim3d-action-btn').style.boxShadow='none';
-    document.getElementById('sim3d-action-btn').textContent='→ Cliquez la loupe dans la scène';
-  } else if(sim3dStep===2){
-    document.getElementById('sim3d-inspect-zone').style.display='none';
-    document.getElementById('sim3d-success-overlay').style.opacity='1';
-    document.getElementById('sim3d-warnlight').style.display='none';
-    document.getElementById('sim3d-action-btn').disabled=true;
-    document.getElementById('sim3d-action-btn').style.background='#334155';
-    document.getElementById('sim3d-action-btn').style.boxShadow='none';
-    document.getElementById('sim3d-action-btn').textContent='✓ Procédure terminée';
-    document.getElementById('sim3d-final').style.display='block';
-    document.getElementById('sim3d-restart-btn').style.display='block';
-    document.getElementById('sim3d-pts').style.color='#10b981';
-    document.getElementById('sim3d-hint').textContent='Zone sécurisée — protocole LOTO complet ✓';
-    document.getElementById('sim3d-status-dot').style.background='#10b981';
-    document.getElementById('sim3d-status-dot').style.animation='none';
-  }
-  document.getElementById('sim3d-safety-bar').style.width=s.safetyPct+'%';
-  document.getElementById('sim3d-safety-bar').style.background=s.safetyColor;
-  document.getElementById('sim3d-safety-pct').textContent=s.safetyPct+'%';
-  document.getElementById('sim3d-safety-pct').style.color=s.safetyColor;
-  sim3dDone.push(sim3dStep);
-  sim3dStep++;
-  document.getElementById('sim3d-pts').textContent=sim3dDone.length+' / 3 étapes';
-  sim3dRenderChecklist();
-}
-function sim3dRestart(){
-  sim3dStep=0; sim3dDone=[];
-  document.getElementById('sim3d-pts').textContent='0 / 3 étapes';
-  document.getElementById('sim3d-pts').style.color='#0ea5e9';
-  document.getElementById('sim3d-final').style.display='none';
-  document.getElementById('sim3d-restart-btn').style.display='none';
-  document.getElementById('sim3d-success-overlay').style.opacity='0';
-  document.getElementById('sim3d-safety-bar').style.width='0%';
-  document.getElementById('sim3d-safety-bar').style.background='#ef4444';
-  document.getElementById('sim3d-safety-pct').textContent='0%';
-  document.getElementById('sim3d-safety-pct').style.color='#ef4444';
-  document.getElementById('sim3d-warnlight').style.display='block';
-  document.getElementById('sim3d-warnlight').style.background='#ef4444';
-  document.getElementById('sim3d-warnlight').style.boxShadow='0 0 20px #ef4444,0 0 40px rgba(239,68,68,.4)';
-  document.getElementById('sim3d-warnlight').style.animation='warningFlash 0.7s infinite';
-  document.getElementById('sim3d-blade').style.animation='spin 1s linear infinite';
-  document.getElementById('sim3d-warn-overlay').style.opacity='1';
-  document.getElementById('sim3d-warn-overlay').style.animation='warningFlash 0.7s infinite';
-  document.getElementById('sim3d-estop-area').style.display='block';
-  document.getElementById('sim3d-padlock-zone').style.display='none';
-  document.getElementById('sim3d-inspect-zone').style.display='none';
-  const btn=document.getElementById('sim3d-action-btn');
-  btn.disabled=false; btn.style.background='#ef4444'; btn.style.boxShadow='0 0 15px rgba(239,68,68,.4)';
-  btn.textContent='🛑 Arrêt d\'urgence';
-  document.getElementById('sim3d-hint').textContent='Machine en marche — DANGER. Appuyez sur STOP.';
-  document.getElementById('sim3d-status-dot').style.background='#ef4444';
-  document.getElementById('sim3d-status-dot').style.animation='warningFlash .7s infinite';
-  sim3dRenderChecklist();
-}
-document.getElementById('sim3d-blade').style.animation='spin 1s linear infinite';
-sim3dRenderChecklist();
-sim3dUpdateBtn();
-</script>
 </body>
 </html>
