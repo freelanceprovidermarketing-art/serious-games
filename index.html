@@ -291,32 +291,6 @@ body {
 .panel-sidebar {
   width: clamp(110px, 16vw, 150px) !important;
 }
-  /* Correction responsive pour le canevas interactif */
-@media (max-width: 768px) {
-  /* Empêche le simulateur de s'écraser */
-  .interactive-sim .scene {
-    width: 100% !important;
-    max-width: 320px;
-    height: auto !important;
-    aspect-ratio: 4 / 3;
-    margin: 0 auto;
-  }
-
-  /* Ajuste l'écran holographique à l'intérieur */
-  .holo-screen {
-    width: 90% !important;
-    height: 70% !important;
-    left: 5% !important;
-    top: 15% !important;
-    padding: 10px !important;
-  }
-
-  /* Si tu as une mise en page en deux colonnes, on les passe l'une sous l'autre */
-  .two-column {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-}
 </style>
 </head>
 <body>
